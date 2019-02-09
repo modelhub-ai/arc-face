@@ -1,51 +1,50 @@
 {
-  "id": "GET A UID FOR YOUR MODEL e.g. here https://www.uuidgenerator.net/",
+  "id": "02f2f15c-3285-44a4-8119-b298623b7acf",
   "meta": {
-    "name": "",
-    "application_area": "",
-    "task": "",
-    "task_extended": "",
-    "data_type": "",
-    "data_source": ""
+    "name": "arc-face",
+    "application_area": "Computer Vision",
+    "task": "Recognition",
+    "task_extended": "Facial Detection & Recognition",
+    "data_type": "Image/Photo",
+    "data_source": "https://www.msceleb.org/"
   },
   "publication": {
-    "title": "",
-    "source": "",
-    "year": 1800,
-    "authors": "",
-    "email": "",
-    "abstract": "",
-    "url": "",
-    "google_scholar": "",
-    "bibtex": ""
+    "title": "ArcFace: Additive Angular Margin Loss for Deep Face Recognition",
+    "source": "arxiv",
+    "year": 2018,
+    "authors": "Jiankang Deng, Jia Guo, Niannan Xue, Stefanos Zafeiriou",
+    "email": "j.deng16@imperial.ac.uk",
+    "abstract": "One of the main challenges in feature learning using Deep Convolutional Neural Networks (DCNNs) for large-scale face recognition is the design of appropriate loss functions that enhance discriminative power. Centre loss penalises the distance between the deep features and their corresponding class centres in the Euclidean space to achieve intra-class compactness. SphereFace assumes that the linear transformation matrix in the last fully connected layer can be used as a representation of the class centres in an angular space and penalises the angles between the deep features and their corresponding weights in a multiplicative way. Recently, a popular line of research is to incorporate margins in well-established loss functions in order to maximise face class separability. In this paper, we propose an Additive Angular Margin Loss (ArcFace) to obtain highly discriminative features for face recognition. The proposed ArcFace has a clear geometric interpretation due to the exact correspondence to the geodesic distance on the hypersphere. We present arguably the most extensive experimental evaluation of all the recent state-of-the-art face recognition methods on over 10 face recognition benchmarks including a new large-scale image database with trillion level of pairs and a large-scale video dataset. We show that ArcFace consistently outperforms the state-of-the-art and can be easily implemented with negligible computational overhead. We release all refined training data, training codes, pre-trained models and training logs, which will help reproduce the results in this paper.",
+    "url": "https://arxiv.org/abs/1801.07698",
+    "google_scholar": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13816119281473749224",
+    "bibtex": "@article{DBLP:journals/corr/abs-1801-07698, author= {Jiankang Deng and Jia Guo and Stefanos Zafeiriou}, title = {ArcFace: Additive Angular Margin Loss for Deep Face Recognition}, journal = {CoRR}, volume = {abs/1801.07698}, year = {2018}, url = {http://arxiv.org/abs/1801.07698}, archivePrefix = {arXiv}, eprint = {1801.07698}, timestamp = {Mon, 13 Aug 2018 16:46:52 +0200}, biburl = {https://dblp.org/rec/bib/journals/corr/abs-1801-07698}, bibsource = {dblp computer science bibliography, https://dblp.org}}"
   },
   "model": {
-    "description": "",
-    "architecture": "",
-    "learning_type": "",
-    "format": "",
+    "description": "ArcFace is a CNN based model for face recognition which learns discriminative features of faces and produces embeddings for input face images. To enhance the discriminative power of softmax loss, a novel supervisor signal called additive angular margin (ArcFace) is used here as an additive term in the softmax loss.",
+    "architecture": "Convolutional Neural Network (CNN)",
+    "learning_type": "Supervised learning",
+    "format": ".onnx",
     "io": {
       "input": {
-        "format": [],
+        "format": ["image/png", "image/jpg", "image/jpeg"],
         "dim_limits": [
           {
-            "min": 0,
-            "max": 0
+            "min": 1,
+            "max": 4
           },
           {
-            "min": 0
+            "min": 32
           },
           {
-            "min": 0
+            "min": 32
           }
-        ],
-        "description": ""
+        ]
       },
       "output": [
         {
-          "name": "",
-          "type": "",
-          "description": ""
+          "name": "embedding vector",
+          "type": "vector",
+          "description": "For each face image, the model produces a fixed length embedding vector corresponding to the face in the image. The vectors from face images of a single person have a higher similarity than that from different persons. Therefore, the vector is primarily used for face recognition/verification. It can also be used in other applications like facial feature-based clustering."
         }
       ]
     }
