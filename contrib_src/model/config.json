@@ -29,7 +29,7 @@
         "format": ["image/png", "image/jpg", "image/jpeg"],
         "dim_limits": [
           {
-            "min": 1,
+            "min": 3,
             "max": 4
           },
           {
@@ -44,7 +44,7 @@
         {
           "name": "embedding vector",
           "type": "vector",
-          "description": "For each face image, the model produces a fixed length embedding vector corresponding to the face in the image. The vectors from face images of a single person have a higher similarity than that from different persons. Therefore, the vector is primarily used for face recognition/verification. It can also be used in other applications like facial feature-based clustering."
+          "description": "This is a fixed length embedding vector corresponding to the face in the image. The vectors from face images of a single person have a higher similarity than that from different persons. Therefore, the vector is primarily used for face recognition/verification. It can also be used in other applications like facial feature-based clustering."
         }
       ]
     }
