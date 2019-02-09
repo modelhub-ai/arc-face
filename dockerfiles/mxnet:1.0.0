@@ -1,0 +1,39 @@
+# Use an official ubuntu runtime as a parent image
+FROM ubuntu:16.04
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    vim \
+    build-essential \
+    cmake \
+    curl \
+    git \
+    libgoogle-glog-dev \
+    libprotobuf-dev \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    python-tk \
+    libfontconfig1 \
+    libxrender1 \
+    python-pip \
+    protobuf-compiler \
+    python-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install some python packages
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+RUN pip install --no-cache-dir future hypothesis \
+    mxnet==1.3.1 --pre -U \
+    onnx==1.1.1 \
+    numpy==1.14.4 \
+    protobuf \
+    six \
+    matplotlib \
+    opencv-python \
+    scikit-learn \
+    easydict \
+    scikit-image
