@@ -20,13 +20,9 @@ class ImageProcessor(ImageProcessorBase):
 
     def _preprocessBeforeConversionToNumpy(self, image):
         if isinstance(image, PIL.Image.Image):
-            # cv2 array format: height:width:channels
-            # required input: (826, 551, 3)
-            # input from PIL: (1, 3, 826, 551)
-            # npArr = npArr.reshape(npArr.shape[2], npArr.shape[3], npArr.shape[1])
-            #
-            # npArr = cv2.cvtColor(npArr, cv2.COLOR_RGB2BGR)
-
+            # NOTE: for images will multiple faces, this model will only return
+            # one vector.
+            # switches PIL to cv2
             npArr = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
 
             det_threshold = [0.6,0.7,0.8]
