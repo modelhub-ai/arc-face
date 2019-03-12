@@ -24,6 +24,7 @@ This repository hosts the contributor source files for the arc-face model. Model
 | | |
 |-|-|
 | description | ArcFace is a CNN based model for face recognition which learns discriminative features of faces and produces embeddings for input face images. To enhance the discriminative power of softmax loss, a novel supervisor signal called additive angular margin (ArcFace) is used here as an additive term in the softmax loss. | 
+| provenance | https://github.com/onnx/models/tree/master/models/face_recognition/ArcFace |
 | architecture | Convolutional Neural Network (CNN) | 
 | learning_type | Supervised learning | 
 | format | .onnx | 
